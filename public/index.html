@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RTSP Stream Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        button {
+            margin: 2px;
+        }
+        tr {
+            vertical-align: top;
+        }
+        video {
+            width: 360px;
+            background-color: black;
+            padding: 10px;
+            margin: 1px 1px;
+        }
+        .mainTable {
+            width: 100%;
+        }
+        .localColumn {
+            width: 246px;
+        }
+        .remoteColumn {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #localVideo {
+            width: 720px;
+        }
+        .remoteVideo {
+            float: left;
+        }
+
+        .videoWrap {
+            margin: 3px;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media only screen and (max-width: 1060px) {
+            .video {
+                width: 300px;
+            }
+        }
+
+        @media only screen and (max-width: 940px) {
+            .video {
+                width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="video">
+    <table class="mainTable">
+        <tbody>
+        <tr>
+            <td class="localColumn">
+                <div>
+                    <video id="localVideo" controls autoplay class="video"></video>
+                </div>
+                <div>
+                    <button id="btnLocalVideo">Publish</button>
+                    <br />
+                    <input type="file" id="fileInput" />
+                    <button id="btnLoadFile">Play File</button>
+                    <br />
+                    <input type="text" id="rtspUrlInput" placeholder="Enter RTSP URL" />
+                    <button id="btnLoadRTSP">Play RTSP</button>
+                    <button id="btnPublishRTSP">Publish RTSP</button>
+
+                </div>
+            </td>
+            <td class="remoteColumn">
+                <div id="videoContainer"></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<footer>
+    <script src="bundle.js"></script>
+</footer>
+</html>
